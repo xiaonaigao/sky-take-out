@@ -83,12 +83,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// 账号状态
 		employee.setStatus(StatusConstant.ENABLE);
 		// 时间
-		employee.setCreateTime(LocalDateTime.now());
-		employee.setUpdateTime(LocalDateTime.now());
+		// employee.setCreateTime(LocalDateTime.now());
+		// employee.setUpdateTime(LocalDateTime.now());
 		// 创建者
 		// 拦截器解析token存empid
-		employee.setCreateUser(BaseContext.getCurrentId());
-		employee.setUpdateUser(BaseContext.getCurrentId());
+		// employee.setCreateUser(BaseContext.getCurrentId());
+		// employee.setUpdateUser(BaseContext.getCurrentId());
 
 		//2.调用mapper
 		employeeMapper.insert(employee);
@@ -148,8 +148,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// 封装参数
 		Employee employee = new Employee();
 		BeanUtils.copyProperties(employeeDTO,employee);
-		employee.setUpdateTime(LocalDateTime.now());
-		employee.setUpdateUser(BaseContext.getCurrentId());
+		// employee.setUpdateTime(LocalDateTime.now());
+		// employee.setUpdateUser(BaseContext.getCurrentId());
 		//调用mapper
 		employeeMapper.update(employee);
 	}
