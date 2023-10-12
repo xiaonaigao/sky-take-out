@@ -11,3 +11,11 @@ sky:
     access-key-id: LTAI5tAFqRCr251gRTpXcuVp
     access-key-secret: uJbDosT4WP8IjrHfdD4v5bMjsJ7Zgf
     bucket-name: wzlwaimai
+  redis:
+    host: localhost
+    port: 6379
+    database: 2
+  wechat:
+    appid: wx7ab387f6274666f7
+    secret: 54b2c6ab6ef592fed157ef0db63517c7
+

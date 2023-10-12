@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.ShoppingCartMapper">
+    <select id="getList" resultType="ShoppingCart" parameterType="ShoppingCart">
+        select * from shopping_cart
+        <where>
+            <if test="userId!=null">and user_id=#{userId}</if>
+            <if test="dishFlavor!=null">and dish_flavor=#{dishFlavor}</if>
+            <if test="dishId!=null">and dish_id=#{dishId}</if>
+            <if test="setmealId!=null">and setmeal_id=#{setmealId}</if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <delete id="deleteByDishIdOrBySetMealId">
+        delete from shopping_cart
+        <where>
+            <if test="userId!=null">and user_id=#{userId}</if>
+            <if test="dishFlavor!=null">and dish_flavor=#{dishFlavor}</if>
+            <if test="dishId!=null">and dish_id=#{dishId}</if>
+            <if test="setmealId!=null">and setmeal_id=#{setmealId}</if>
+        </where>
+    </delete>
+
+    <insert id="insertBatch" parameterType="list">
+        insert into shopping_cart(name, image, user_id, dish_id, setmeal_id, dish_flavor, number, amount, create_time)
+        values
+        <foreach collection="shoppingCartList" item="lt" separator=",">
+            (#{lt.name}, #{lt.image}, #{lt.userId}, #{lt.dishId}, #{lt.setmealId}, #{lt.dishFlavor}, #{lt.number},
+            #{lt.amount}, #{lt.createTime})
+        </foreach>
+
+    </insert>
+</mapper>
