@@ -1,36 +1,38 @@
+# SpringBoot配置文件
+# 程序的端口号8080
 server:
   port: 8080
-
+# 配置不同的环境，此时是dev生产环境
 spring:
   profiles:
     active: dev
   main:
     allow-circular-references: true
-  datasource:
+  datasource: # 配置数据库信息
     druid:
       driver-class-name: ${sky.datasource.driver-class-name}
       url: jdbc:mysql://${sky.datasource.host}:${sky.datasource.port}/${sky.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
       username: ${sky.datasource.username}
       password: ${sky.datasource.password}
-  redis:
+  redis: # 配置redis信息
     host: ${sky.redis.host}
     port: ${sky.redis.port}
     database: ${sky.redis.database}
 
 mybatis:
   #mapper配置文件
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.sky.entity
+  mapper-locations: classpath:mapper/*.xml # 配置为扫描classpath:mapper/目录下的所有XML映射器文件
+  type-aliases-package: com.sky.entity #S QL映射文件中引用Java类而无需使用完整的类名
   configuration:
     #开启驼峰命名
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: true # MyBatis会将数据库列名中的下划线转换为Java属性的驼峰命名规则
 
 logging:
-  level:
+  level: # 不同包或类的日志级别，以便控制日志输出的详细程度。
     com:
       sky:
-        mapper: debug
-        service: info
+        mapper: debug # debug级别输出，通常用于在调试时记录详细信息。
+        service: info # 以info级别输出，通常用于记录一般信息，而不是详细的调试信息。
         controller: info
 
 sky:
@@ -47,15 +49,15 @@ sky:
     user-ttl: 7200000
     # 前端令牌
     user-token-name: authentication
-  alioss:
+  alioss: #图片上传
     endpoint: ${sky.alioss.endpoint}
     access-key-id: ${sky.alioss.access-key-id}
     access-key-secret: ${sky.alioss.access-key-secret}
     bucket-name: ${sky.alioss.bucket-name}
-  wechat:
+  wechat: #微信登录
     appid: ${sky.wechat.appid}
     secret: ${sky.wechat.secret}
-  shop:
+  shop: # 地图商铺定位
     address: 陕西省西安市莲湖区西大街1号
-  baidu:
+  baidu: # 百度地图的定位服务
     ak: 3OY5HbQqaq8VWapGZ2uGuujEMayLE5rq

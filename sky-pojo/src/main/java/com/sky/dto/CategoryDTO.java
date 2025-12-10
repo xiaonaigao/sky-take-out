@@ -1,4 +1,7 @@
 package com.sky.dto;
+/**
+ * 接收前端传过来的数据
+ */
 
 import lombok.Data;
 

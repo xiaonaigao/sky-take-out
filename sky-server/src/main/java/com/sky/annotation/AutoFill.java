@@ -12,12 +12,9 @@ import java.lang.annotation.Target;
  * 自定义注解，标识方法需要进行字符填充
  * @author
  */
-@Target(ElementType.METHOD)
-@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD) // 该注解用于方法
+@Retention(RetentionPolicy.RUNTIME) // 运行时访问注解信息
 public @interface AutoFill {
 	// 数据库操作类型 update,insert
 	OperationType value();
-
-
-
 }

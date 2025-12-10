@@ -23,8 +23,8 @@ import java.time.LocalDateTime;
  * <p>
  * 自定义切面，实现公共字段填充处理
  */
-@Aspect
-@Component
+@Aspect //切面
+@Component // 创建它们的实例，将它们注册为Spring的bean
 @Slf4j
 public class AutoFillAspect {
 
@@ -42,8 +42,8 @@ public class AutoFillAspect {
 	public void autoFill(JoinPoint joinPoint) {
 		log.info("开始进行公共字段自动填充");
 		// 获取当前拦截方法数据库操作类型insert还是update
-		MethodSignature signature = (MethodSignature) joinPoint.getSignature();//对象
-		AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);//注解对象
+		MethodSignature signature = (MethodSignature) joinPoint.getSignature();//获取方法签名，能够得到他的信息
+		AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);//得到房前的注解对象
 		OperationType operationType = autoFill.value();//操作类型
 
 		//当前拦截的参数-实体对象
@@ -58,6 +58,7 @@ public class AutoFillAspect {
 		Long currentId = BaseContext.getCurrentId();
 
 		// 不同操作的类型赋值
+		// 插入操作
 		if (operationType == OperationType.INSERT){
 			try {
 				Method setCreateTime = entity.getClass().getDeclaredMethod(AutoFillConstant.SET_CREATE_TIME, LocalDateTime.class);

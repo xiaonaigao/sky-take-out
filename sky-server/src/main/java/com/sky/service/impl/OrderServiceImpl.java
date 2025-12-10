@@ -135,7 +135,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	@Transactional
 	public OrderSubmitVO submit(OrdersSubmitDTO ordersSubmitDTO) {
-		// 1.异常情况：购物车和地址为空。
+		// 1.异常情况：购物和地址车为空。
 		AddressBook addressBook = addressBookMapper.getById(ordersSubmitDTO.getAddressBookId());
 		if (addressBook == null) {
 			throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);

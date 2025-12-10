@@ -7,9 +7,9 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@SpringBootApplication
+@SpringBootApplication // 启动类，扫描初始化组件
 @EnableTransactionManagement //开启注解方式的事务管理
-@Slf4j
+@Slf4j // 接口文档
 @EnableCaching //开启缓存注解
 @EnableScheduling //开启定时任务
 public class SkyApplication {

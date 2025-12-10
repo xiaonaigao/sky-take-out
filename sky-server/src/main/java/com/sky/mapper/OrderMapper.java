@@ -98,7 +98,7 @@ public interface OrderMapper {
 	Double sumByMap(Map map);
 
 	/**
-	 * 查询订单
+	 * 查询订单数量
 	 * @param map
 	 * @return
 	 */

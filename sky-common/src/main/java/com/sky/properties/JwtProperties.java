@@ -4,7 +4,10 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@Component
+/**
+ * jwt配置字段
+ */
+@Component // Spring容器实例化并管理
 @ConfigurationProperties(prefix = "sky.jwt")
 @Data
 public class JwtProperties {

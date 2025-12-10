@@ -10,10 +10,10 @@ import java.io.Serializable;
 /**
  * 地址簿
  */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data //生成set,get
+@Builder //  AddressBook address = AddressBook.builder() .属性
+@NoArgsConstructor //无参构造器
+@AllArgsConstructor //有参构造器
 public class AddressBook implements Serializable {
 
     private static final long serialVersionUID = 1L;

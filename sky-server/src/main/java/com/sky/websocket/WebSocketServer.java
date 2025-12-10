@@ -15,7 +15,7 @@ import java.util.Map;
  * WebSocket服务
  */
 @Component
-@ServerEndpoint("/ws/{sid}")
+@ServerEndpoint("/ws/{sid}") //WebSocket注解，用于定义WebSocket端点
 public class WebSocketServer {
 
     //存放会话对象
@@ -57,7 +57,7 @@ public class WebSocketServer {
      * @param message
      */
     public void sendToAllClient(String message) {
-        Collection<Session> sessions = sessionMap.values();
+        Collection<Session> sessions = sessionMap.values();//获取客户端和WebSocket会话的集合
         for (Session session : sessions) {
             try {
                 //服务器向客户端发送消息

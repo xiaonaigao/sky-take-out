@@ -5,6 +5,7 @@ import com.sky.vo.SalesTop10ReportVO;
 import com.sky.vo.TurnoverReportVO;
 import com.sky.vo.UserReportVO;
 
+import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 
 /**
@@ -27,4 +28,8 @@ public interface ReportService {
 	 * 查询销量排名top10
 	 */
 	SalesTop10ReportVO top10(LocalDate begin, LocalDate end);
+	/**
+	 * 导表
+	 */
+	void export(HttpServletResponse response);
 }

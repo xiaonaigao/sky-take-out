@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--可以使用父类sky-take-out配置-->
     <parent>
         <artifactId>sky-take-out</artifactId>
         <groupId>com.sky</groupId>
@@ -10,22 +11,29 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>sky-common</artifactId>
     <dependencies>
+        <!--Lombok提供一些@getter,@seter简化开发-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!--操作JSON-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
+        <!--Apache Commons Lang 是一个通用的Java应用程序工具库，提供了许多常见的工具类和方法，
+         用于处理字符串、集合、日期、数学等方面的操作，以简化开发过程。-->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
         </dependency>
+        <!--Spring Boot Starter JSON 提供了与 JSON 数据格式相关的功能，
+        包括 JSON 数据的序列化（将Java对象转换为JSON）和反序列化（将JSON转换为Java对象）。-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-json</artifactId>
         </dependency>
+        <!--创建、验证和解析JWT令牌的功能-->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
@@ -36,10 +44,12 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <!--文件上传-->
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
         </dependency>
+        <!--将XML数据与Java对象之间进行转换。-->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>

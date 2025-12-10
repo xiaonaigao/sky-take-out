@@ -63,7 +63,7 @@ public class ShoppingCartController {
 	 * @return
 	 */
 	@PostMapping("/sub")
-	@ApiOperation("添加购物车")
+	@ApiOperation("删除购物车")
 	public Result sub(@RequestBody ShoppingCartDTO shoppingCartDTO){
 		log.info("数量减1的购物车为{}",shoppingCartDTO);
 		shoppingCartService.sub(shoppingCartDTO);

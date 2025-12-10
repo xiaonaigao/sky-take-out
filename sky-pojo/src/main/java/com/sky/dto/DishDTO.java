@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 public class DishDTO implements Serializable {
@@ -25,5 +26,5 @@ public class DishDTO implements Serializable {
     private Integer status;
     //口味
     private List<DishFlavor> flavors = new ArrayList<>();
-
+    
 }

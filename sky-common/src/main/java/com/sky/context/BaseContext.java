@@ -1,5 +1,8 @@
 package com.sky.context;
 
+/**
+ * 通过线程设置用户id
+ */
 public class BaseContext {
 
     public static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
